@@ -1,7 +1,23 @@
-﻿
+﻿@model IQueryable<Product>
+
 @{
     ViewData["Title"] = "Home";
 }
 
-<h1>Welcome to YONGZ CREATIVE Online Store</h1>
+<h2>Welcome to YONGZ CREATIVE Online Store</h2>
 
+<div class="card-columns">
+    @foreach (Product p in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <img class="card-img" src="@p.ImagePath" alt="@p.Name">
+                <div class="card-text">
+                    <h5 class="text-right">@p.Price.ToString("c")</h5>
+                    <h3>@p.Name</h3>
+                    <p>@p.Description</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
