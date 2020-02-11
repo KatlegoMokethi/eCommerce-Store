@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using YongzCreative.Models;
@@ -26,7 +27,8 @@ namespace YongzCreative
         {
             services.AddMvc();
             services.AddTransient<IProductRepository, EFProductRepository>();
-
+            services.AddDbContext<AppDbContext>(options => 
+            options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
