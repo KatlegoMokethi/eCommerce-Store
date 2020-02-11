@@ -1,13 +1,31 @@
 ﻿<!DOCTYPE html>
-<!--Katlego Mokhethi-->
-<html>
+<!-- Katlego Mokhethi-->
+<!-- mokhethikatlego@gmail.com; YongzCreative Online Store-->
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link asp-href-include="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>@ViewData["Title"] - YongzCreative Online Store</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <!-- Navigation -->
+    <div class="navbar navbar-inverse bg-inverse" role="navigation">
+        <a class="navbar-brand" href="#">YONGZ CREATIVE</a>
     </div>
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-3">
+            Put something useful here later
+        </div>
+        <div class="col-9">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script asp-src-include="lib/jquery/jquery.slim.min.js"></script>
+    <script asp-src-include="lib/popper.js/popper.min.js"></script>
+    <script asp-src-include="lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
