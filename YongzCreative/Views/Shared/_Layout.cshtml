@@ -6,6 +6,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!--font(s)-->
+    <link href="https://fonts.googleapis.com/css2?family=Lateef&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link asp-href-include="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link asp-href-include="/lib/font-awesome/css/all.css" rel="stylesheet" />
@@ -15,17 +17,60 @@
     <title>@ViewData["Title"] - YongzCreative Online Store</title>
 </head>
 <body>
-    <!-- Navigation -->
-    <div class="navbar navbar-inverse bg-inverse" role="navigation">
-        <a class="navbar-brand" href="#">YONGZ CREATIVE</a>
-    </div>
-    <div class="row m-1 p-1">
+    <header>
+        <!-- Navigation -->
+        <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light fixed-top">
+            <div class="container">
+                <!--Navbar Brand-->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <h3 class="text-light">
+                        <img src="~/images/logo/Logo_B.png" style="width:100px;"/>
+                    </h3>
+                </a>
+                <!--Hamburger menu-->
+                <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--Nav Items-->
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1 font-weight-bold">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Hoodies" asp-action="Events">HOODIES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Caps" asp-action="News">CAPS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Sweaters" asp-action="Radio">SWEATERS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="TShirts" asp-action="Gallery">T-SHIRTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="About" asp-action="About">ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Contact" asp-action="SendEmail">CONTACT US</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @*<div class="row m-1 p-1">
         <div id="categories" class="col-3">
             Put something useful here later
         </div>
         <div class="col-9">
             @RenderBody()
         </div>
+    </div>*@
+    <div style="margin-top: 100px;">
+        @RenderBody();
     </div>
     <!-- footer -->
     <footer style="background-color: black;">
@@ -101,25 +146,25 @@
                     <!-- Links -->
                     <h6 class="text-uppercase font-weight-bold">FOLLOW US:</h6>
                     <hr class="bg-light accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
-                    <br />
                     <!--Social buttons-->
-                    <div class="social-buttons">
+                    <br />
+                    <div class="social-buttons ml-0 pl-0">
                         <!-- facebook  Button -->
-                        <a href="https://www.facebook.com/ARTbyYONELA/" target="blank"
+                        <a href="https://www.facebook.com/ARTbyYONELA/"
                            data-toggle="tooltip" data-placement="top" title="Facebook">
                             <div class="social-icon facebook">
                                 <i class="fab fa-facebook" aria-hidden="true"></i>
                             </div>
                         </a>
-                        <!-- pinterest Button -->
-                        <a href="https://www.instagram.com/yongzcreative/" target="blank"
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/yongzcreative/"
                            data-toggle="tooltip" data-placement="top" title="Instagram">
                             <div class="social-icon pinterest">
                                 <i class="fab fa-instagram" aria-hidden="true"></i>
                             </div>
                         </a>
                         <!-- TwitterButton -->
-                        <a href="https://twitter.com/yongzcreative" target="blank"
+                        <a href="https://twitter.com/yongzcreative"
                            data-toggle="tooltip" data-placement="top" title="Twitter">
                             <div class="social-icon twitter">
                                 <i class="fab fa-twitter" aria-hidden="true"></i>
