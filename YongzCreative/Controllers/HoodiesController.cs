@@ -7,6 +7,7 @@ using YongzCreative.Models;
 
 namespace YongzCreative.Controllers
 {
+    [Route("[controller]")]
     public class HoodiesController : Controller
     {
         private readonly IProductRepository _productRepository;
@@ -16,7 +17,7 @@ namespace YongzCreative.Controllers
             _productRepository = repo;
         }
 
-        public IActionResult Index()
+        public IActionResult Hoodies()
         {
             return View(_productRepository.Products);
         }
