@@ -51,6 +51,10 @@ a:hover, a:focus, a:active {
     margin-left: 35%;
 }
 
+h1#Hoodies{
+    font-family: Impact;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
