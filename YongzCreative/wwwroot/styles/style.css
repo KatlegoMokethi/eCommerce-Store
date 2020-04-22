@@ -19,6 +19,16 @@ html {
     }
 }
 
+body {
+    background: rgb(65,17,69);
+    background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 59%);
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: #00199f;
+}
+
 .border-top {
     border-top: 1px solid #e5e5e5;
 }
@@ -33,7 +43,12 @@ html {
 
 #HomeDisplay{
     padding-top: 25%;
-    font: 24px 'Lateef', cursive;
+    font: 48px 'Lateef', cursive;
+    /*font: 42px Impact;*/
+}
+
+#CallToAction {
+    margin-left: 35%;
 }
 
 /* Sticky footer styles
@@ -68,9 +83,10 @@ html {
 
 /*Contact*/
 .contact {
-    background: rgb(65,17,69);
-    background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 62%, rgba(1,9,45,1) 100%);
-    padding: 5px;
+    /*background: rgb(65,17,69);
+    background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 62%, rgba(1,9,45,1) 100%);*/
+    /*background-color: #414141;
+    padding: 5px;*/
 }
 
 /*Social Buttons*/
