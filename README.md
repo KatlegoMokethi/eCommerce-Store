@@ -1,7 +1,7 @@
 # e-Commerce Solution for BAD ART
 
 ## About BAD ART
-BAD ART (PTY) LTD is a retail company that incorporates art into it's designs. 
+BAD ART (PTY) LTD is a retail company that incorporates art into its designs. 
 It gives you both calm and chaotic styles of comfort wear.
 
 ## Using:
