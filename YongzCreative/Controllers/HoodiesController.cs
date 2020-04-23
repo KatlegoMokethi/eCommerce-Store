@@ -19,7 +19,7 @@ namespace YongzCreative.Controllers
 
         public IActionResult Hoodies()
         {
-            return View(_productRepository.Products);
+            return View(_productRepository.Products.Where(h => h.category == Category.Hoodie));
         }
     }
 }
