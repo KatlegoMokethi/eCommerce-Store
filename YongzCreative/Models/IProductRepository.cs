@@ -8,5 +8,11 @@ namespace YongzCreative.Models
     public interface IProductRepository
     {
         IQueryable<Product> Products { get; }
+        IQueryable<Product> Hoodies { get; }
+        IQueryable<Product> Caps { get; }
+        IQueryable<Product> Sweaters { get; }
+        IQueryable<Product> Sweatpants { get; }
+        IQueryable<Product> Leggings { get; }
+        IQueryable<Product> TShirts { get; }
     }
 }
