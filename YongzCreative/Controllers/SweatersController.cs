@@ -1,11 +1,25 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YongzCreative.Models;
 
 namespace YongzCreative.Controllers
 {
-    public class SweatersController
+    [Route("[controller]")]
+    public class SweatersController : Controller
     {
+        private readonly IProductRepository _productRepository;
+
+        public SweatersController(IProductRepository repo)
+        {
+            _productRepository = repo;
+        }
+
+        public IActionResult Sweaters()
+        {
+            return View(_productRepository.Sweaters);
+        }
     }
 }
