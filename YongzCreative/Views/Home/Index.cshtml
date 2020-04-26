@@ -105,46 +105,4 @@
             </div>
         </div>
         <!--//The multi item carousel-->
-        <!--JS for carousel-->
-        <script>
-            $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
-                var next = $(this).next();
-                if (!next.length) {
-                    next = $(this).siblings(':first');
-                }
-                next.children(':first-child').clone().appendTo($(this));
-
-                for (var i = 0; i < 4; i++) {
-                    next = next.next();
-                    if (!next.length) {
-                        next = $(this).siblings(':first');
-                    }
-                    next.children(':first-child').clone().appendTo($(this));
-                }
-            });
-        </script>
-        <!--//JS for carousel-->
-
     </div>
-
-@*
-    The JS Code:
-
-    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function(){
-      var next = $(this).next();
-      if (!next.length) {
-        next = $(this).siblings(':first');
-      }
-      next.children(':first-child').clone().appendTo($(this));
-
-      for (var i=0;i<4;i++) {
-        next=next.next();
-        if (!next.length) {
-          next=$(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-      }
-    });
-
-
-*@
