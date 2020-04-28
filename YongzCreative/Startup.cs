@@ -25,10 +25,13 @@ namespace YongzCreative
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddDbContext<AppDbContext>(options => 
             options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();        
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +40,7 @@ namespace YongzCreative
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
         }
     }
