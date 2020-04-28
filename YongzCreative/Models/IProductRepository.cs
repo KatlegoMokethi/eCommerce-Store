@@ -8,6 +8,7 @@ namespace YongzCreative.Models
     public interface IProductRepository
     {
         IQueryable<Product> Products { get; }
+        Product GetById(int id);
         IQueryable<Product> Hoodies { get; }
         IQueryable<Product> Caps { get; }
         IQueryable<Product> Sweaters { get; }
