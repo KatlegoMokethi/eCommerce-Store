@@ -20,5 +20,7 @@ namespace YongzCreative.Models
         public IQueryable<Product> Leggings => _context.Products.Where(p => p.category == Category.Leggings);
 
         public IQueryable<Product> TShirts => _context.Products.Where(p => p.category == Category.T_Shirt);
+
+        public Product GetById(int id) => _context.Products.Find(id);
     }
 }
