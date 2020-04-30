@@ -6,7 +6,7 @@ using YongzCreative.Infrastructure;
 using YongzCreative.Models;
 using YongzCreative.Models.ViewModels;
 
-namespace SportsStore.Controllers
+namespace YongzCreative.Controllers
 {
     //[Authorize(Roles = "Customers")]
     public class CartController : Controller

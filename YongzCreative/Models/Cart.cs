@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace YongzCreative.Models
 {
@@ -49,10 +47,3 @@ namespace YongzCreative.Models
         public int Quantity { get; set; }
     }
 }
-/*
- - Define a cart model
- - Add the "Add to cart" buttons
- - Enable sessions
- - Implement CartController
- - Display cart content
- */
