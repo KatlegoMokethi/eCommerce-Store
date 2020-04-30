@@ -9,7 +9,7 @@
             <p>@Model.Description</p>
             @if (Model.status == Status.Available)
             {
-                <span class="btn-success p-1 float-left">Available</span>
+                @*<span class="btn-success p-1 float-left">Available</span>*@
 
                 <form id="@Model.ProductId" asp-action="AddToCart"
                       asp-controller="Cart" method="post">
@@ -28,7 +28,7 @@
             }
             else
             {
-                <span class="btn-danger p-1">Out of stock</span>
+                <span class="btn-danger p-1 mb-3 float-right">Out of stock</span>
             }
         </div>
     </div>
