@@ -19,10 +19,10 @@ html {
     }
 }
 
-body {
+/*body {
     background: rgb(65,17,69);
     background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 59%);
-}
+}*/
 
 a:hover, a:focus, a:active {
     text-decoration: none;
