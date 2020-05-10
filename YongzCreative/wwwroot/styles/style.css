@@ -6,7 +6,11 @@ Author URL: mokhethikatlego@gmail.com
 @font-face {
     src: url(../fonts/Lateef-Regular.ttf);
     font-family: Lateef;
-    font-size: 80px;
+}
+
+@font-face {
+    src: url('../fonts/Mafieso - PERSONAL USE.ttf');
+    font-family: Mafieso;
 }
 
 html {
@@ -23,6 +27,11 @@ html {
     background: rgb(65,17,69);
     background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 59%);
 }*/
+
+#HomeTopSection {
+    background: rgb(65,17,69);
+    background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 59%);
+}
 
 a:hover, a:focus, a:active {
     text-decoration: none;
@@ -42,17 +51,26 @@ a:hover, a:focus, a:active {
     background-image: url('../images/nav.png');
 }
 
-#HomeDisplay{
+#HomeDisplay {
     padding-top: 25%;
-    font: 48px 'Lateef', cursive;
-    /*font: 42px Impact;*/
+}
+#BadArt {
+    font: 60px 'Mafieso';
+}
+
+#Store {
+    font: 80px 'Lateef', cursive;
+}
+
+h3 {
+   font-family: Impact;
 }
 
 #CallToAction {
     margin-left: 30%;
 }
 
-h1#Hoodies{
+h1 {
     font-family: Impact;
 }
 
