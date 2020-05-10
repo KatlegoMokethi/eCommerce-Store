@@ -1,108 +1,83 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-    <div class="container text-light">
-        <div class="row">
-            <div class="col">
-                <h2 id="HomeDisplay">YONGZ CREATIVE Online Store</h2>
-                <p>
-                    Everything odd and out of line, a brand for the creative.
-                    It's a unique comfort that comes with style and outlines your individuality.
-                    <br />
-                    <a id="CallToAction" asp-controller="Hoodies" asp-action="hoodies" class="btn btn-success mt-4">SHOP WITH US TODAY</a>
-                </p>
-            </div>
-            <div class="col">
-                <img src="~/images/hoodie.png" style="width:500px;" />
-            </div>
-        </div>
-        <!--The multi item carousel-->
-        <div id="MyCarousel" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
 
-            <!--Controls-->
-            <div class="controls-top">
-                <a class="btn-floating" href="#MyCarousel" data-slide="prev">
-                    <i class="fas fa-chevron-left"></i>
-                </a>
-                <a class="btn-floating" href="#MyCarousel" data-slide="next">
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </div>
-            <!--/.Controls-->
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#MyCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#MyCarousel" data-slide-to="1"></li>
-                <li data-target="#MyCarousel" data-slide-to="2"></li>
-                <li data-target="#MyCarousel" data-slide-to="3"></li>
-                @*<li data-target="#MyCarousel" data-slide-to="4"></li>
-                <li data-target="#MyCarousel" data-slide-to="5"></li>*@
-            </ol>
-            <!--/.Indicators-->
-
-            <div class="carousel-inner v-2 text-dark" role="listbox">
-
-                <div class="carousel-item active">
-                    <div class="col-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="~/images/leggings/Leggings03.png"
-                                 alt="Leggings">
-                            <div class="card-body">
-                                <h4 class="card-title font-weight-bold">Black Leggings</h4>
-                                <p class="card-text">
-                                    Rock your body with this leggings when doing Yoga, exercising and gyming.
-                                </p>
-                                <a class="btn btn-success btn-md btn-rounded">VIEW MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="~/images/caps/Cap05.png"
-                                 alt="Cap">
-                            <div class="card-body">
-                                <h4 class="card-title font-weight-bold">BAD ART CAP</h4>
-                                <p class="card-text">
-                                    Get yourself one of this and look stunning in public.
-                                </p>
-                                <a class="btn btn-success btn-md btn-rounded">VIEW MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="~/images/hoodies/Hoodie02.png"
-                                 alt="Hoodie">
-                            <div class="card-body">
-                                <h4 class="card-title font-weight-bold">HOODIE</h4>
-                                <p class="card-text">
-                                    You'd look cute in this, why wouldn't you?.
-                                </p>
-                                <a class="btn btn-success btn-md btn-rounded">VIEW MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-3">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="~/images/sweaters/sweater00.png"
-                                 alt="Sweater">
-                            <div class="card-body">
-                                <h4 class="card-title font-weight-bold">SWEATER SHIRT</h4>
-                                <p class="card-text">
-                                    Your body can't wait to wear one of our sweaters.
-                                </p>
-                                <a class="btn btn-success btn-md btn-rounded">VIEW MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--//The multi item carousel-->
+<div id="HomeTopSection" class="row text-light">
+    <div class="col pl-5">
+        <p id="HomeDisplay">
+            <span id="BadArt">BAD ART</span> <span id="Store">Online Store</span>
+        </p>
+        <p>
+            Everything odd and out of line, a brand for the creative.
+            It's a unique comfort that comes with style and outlines your individuality.
+            <br />
+            <a id="CallToAction" asp-controller="Hoodies" asp-action="hoodies" class="btn btn-success mt-4">SHOP WITH US TODAY</a>
+        </p>
     </div>
+    <div class="col">
+        <img src="~/images/hoodie.png" style="width:500px;" />
+    </div>
+</div>
+<div class="container">
+    <h4 class="text-center mt-5 mb-5">SHOP THE COLLECTION</h4>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card mb-2">
+                <img class="card-img-top" src="~/images/leggings/Leggings03.png"
+                     alt="Leggings">
+                <div class="card-body">
+                    <h3 class="card-title font-weight-bold">BLACK LEGGINGS</h3>
+                    <p class="card-text">
+                        Rock your body with this leggings when doing Yoga, exercising and gyming.
+                    </p>
+                    <a class="btn btn-success btn-md btn-rounded" asp-controller="Leggings" asp-action="leggings">
+                        VIEW MORE
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card mb-2">
+                <img class="card-img-top" src="~/images/caps/Cap05.png"
+                     alt="Cap">
+                <div class="card-body">
+                    <h3 class="card-title font-weight-bold">BAD ART CAP</h3>
+                    <p class="card-text">
+                        Get yourself one of this and look stunning in public.
+                    </p>
+                    <a class="btn btn-success btn-md btn-rounded" asp-controller="Caps" asp-action="caps">
+                        VIEW MORE
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card mb-2">
+                <img class="card-img-top" src="~/images/hoodies/Hoodie02.png"
+                     alt="Hoodie">
+                <div class="card-body">
+                    <h3 class="card-title font-weight-bold">HOODIE</h3>
+                    <p class="card-text">
+                        You'd look cute in this, why wouldn't you?
+                    </p>
+                    <a class="btn btn-success btn-md btn-rounded" asp-controller="Hoodies" asp-action="hoodies">
+                        VIEW MORE
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card mb-2">
+                <img class="card-img-top" src="~/images/sweaters/sweater00.png"
+                     alt="Sweater">
+                <div class="card-body">
+                    <h3 class="card-title font-weight-bold">SWEATER SHIRT</h3>
+                    <p class="card-text">
+                        Your body can't wait to wear one of our sweaters.
+                    </p>
+                    <a class="btn btn-success btn-md btn-rounded" asp-controller="Sweaters" asp-action="sweaters">VIEW MORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
