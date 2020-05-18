@@ -23,14 +23,20 @@ html {
     }
 }
 
+#area {
+    background: rgb(137,142,214);
+    background: radial-gradient(circle, rgba(137,142,214,1) 0%, rgba(248,248,255,1) 0%, rgba(149,184,232,1) 100%);
+}
+
 /*body {
     background: rgb(65,17,69);
     background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 59%);
 }*/
 
 #HomeTopSection {
-    background: rgb(65,17,69);
-    background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 59%);
+    /*background: rgb(65,17,69);
+    background: linear-gradient(90deg, rgba(65,17,69,1) 0%, rgba(90,36,199,1) 59%);*/
+    background-image: url(/images/bg.jpg);
 }
 
 a:hover, a:focus, a:active {
@@ -53,6 +59,7 @@ a:hover, a:focus, a:active {
 
 #HomeDisplay {
     padding-top: 25%;
+    text-align: center;
 }
 #BadArt {
     font: 50px 'Mafieso';
@@ -62,12 +69,17 @@ a:hover, a:focus, a:active {
     font: 70px 'Lateef', cursive;
 }
 
+#motto {
+    font-size: 24px;
+    text-align: center;
+}
+
 h3 {
    font-family: Impact;
 }
 
 #CallToAction {
-    margin-left: 30%;
+    margin-left: 34%;
 }
 
 h1 {
