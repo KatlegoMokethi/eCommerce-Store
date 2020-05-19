@@ -27,6 +27,9 @@ namespace YongzCreative
         {
             services.AddDbContext<AppDbContext>(options => 
             options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlServer(_configuration.GetConnectionString("IdentityConnection")));
+
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
