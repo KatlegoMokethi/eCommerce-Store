@@ -41,7 +41,8 @@ namespace YongzCreative
             }).AddEntityFrameworkStores<AppIdentityDbContext>()
                         .AddDefaultTokenProviders();
 
-            services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddTransient<IRepositoryWrapper, RepositoryWrapper>();
+
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMemoryCache();
