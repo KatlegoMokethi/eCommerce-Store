@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using YongzCreative.Models;
 
 namespace YongzCreative.Controllers
@@ -10,16 +6,16 @@ namespace YongzCreative.Controllers
     [Route("[controller]")]
     public class LeggingsController : Controller
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IRepositoryWrapper _repository;
 
-        public LeggingsController(IProductRepository repo)
+        public LeggingsController(IRepositoryWrapper repo)
         {
-            _productRepository = repo;
+            _repository = repo;
         }
 
         public IActionResult Leggings()
         {
-            return View(_productRepository.Leggings);
+            return View(_repository.Product.Leggings);
         }
     }
 }

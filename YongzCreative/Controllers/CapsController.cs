@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using YongzCreative.Models;
 
 namespace YongzCreative.Controllers
@@ -10,16 +6,16 @@ namespace YongzCreative.Controllers
     [Route("[controller]")]
     public class CapsController : Controller
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IRepositoryWrapper _repository;
 
-        public CapsController(IProductRepository repo)
+        public CapsController(IRepositoryWrapper repo)
         {
-            _productRepository = repo;
+            _repository = repo;
         }
 
         public IActionResult Caps()
         {
-            return View(_productRepository.Caps);
+            return View(_repository.Product.Caps);
         }
     }
 }

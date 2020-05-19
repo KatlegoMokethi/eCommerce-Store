@@ -10,16 +10,16 @@ namespace YongzCreative.Controllers
     [Route("[controller]")]
     public class SweatpantsController : Controller
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IRepositoryWrapper _repository;
 
-        public SweatpantsController(IProductRepository repo)
+        public SweatpantsController(IRepositoryWrapper repo)
         {
-            _productRepository = repo;
+            _repository = repo;
         }
 
         public IActionResult Sweatpants()
         {
-            return View(_productRepository.Sweatpants);
+            return View(_repository.Product.Sweatpants);
         }
     }
 }

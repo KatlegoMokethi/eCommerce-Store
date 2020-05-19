@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using YongzCreative.Models;
 
 namespace YongzCreative.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IRepositoryWrapper _repository;
 
-        public HomeController(IProductRepository repo)
+        public HomeController(IRepositoryWrapper repo)
         {
-            _productRepository = repo;
+            _repository = repo;
         }
 
         public IActionResult Index()
         {
-            return View(_productRepository.Products);
+            return View();
         }
     }
 }
