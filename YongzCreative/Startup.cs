@@ -33,7 +33,6 @@ namespace YongzCreative
 
             services.AddIdentity<IdentityUser, IdentityRole>(opts => {
                 opts.User.RequireUniqueEmail = true;
-                opts.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz";
                 opts.Password.RequiredLength = 6;
                 opts.Password.RequireNonAlphanumeric = false;
                 opts.Password.RequireLowercase = false;
