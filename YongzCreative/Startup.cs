@@ -15,11 +15,11 @@ namespace YongzCreative
 {
     public class Startup
     {
-        public IConfiguration _configuration { get; }
+        public IConfiguration configuration { get; }
 
         public Startup(IConfiguration configuration)
         {
-            _configuration = configuration;
+            this.configuration = configuration;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -27,9 +27,9 @@ namespace YongzCreative
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options => 
-            options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AppIdentityDbContext>(options =>
-                options.UseSqlServer(_configuration.GetConnectionString("IdentityConnection")));
+                options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
 
             services.AddIdentity<IdentityUser, IdentityRole>(opts => {
                 opts.User.RequireUniqueEmail = true;
@@ -63,6 +63,7 @@ namespace YongzCreative
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            AppIdentityDbContext.CreateAdminAccount(app.ApplicationServices, configuration).Wait();
         }
     }
 }
