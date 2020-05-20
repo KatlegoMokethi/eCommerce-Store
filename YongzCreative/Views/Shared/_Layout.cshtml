@@ -36,54 +36,83 @@
                 </button>
                 <!--Nav Items-->
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+
                     <ul class="navbar-nav flex-grow-1 font-weight-bold">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Hoodies" asp-action="hoodies">HOODIES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Caps" asp-action="caps">CAPS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Sweaters" asp-action="sweaters">SWEATERS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="TShirts" asp-action="tshirts">T-SHIRTS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Leggings" asp-action="leggings">LEGGINGS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Sweatpants" asp-action="sweatpants">SWEATPANTS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="About" asp-action="About">ABOUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Contact" asp-action="SendEmail">CONTACT US</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-link">Hello, @User.Identity.Name</li>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Admin</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-controller="Admin"
+                                           asp-action="Index">User Management</a>
+                                        <a class="dropdown-item" asp-controller="RoleAdmin"
+                                           asp-action="Index">Role Management</a>
+
+                                    </div>
+                                </li>
+                            }
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Hoodies" asp-action="hoodies">HOODIES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Caps" asp-action="caps">CAPS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Sweaters" asp-action="sweaters">SWEATERS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="TShirts" asp-action="tshirts">T-SHIRTS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Leggings" asp-action="leggings">LEGGINGS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Sweatpants" asp-action="sweatpants">SWEATPANTS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="About" asp-action="About">ABOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Contact" asp-action="SendEmail">CONTACT US</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <form asp-controller="Account" asp-action="Logout" method="post">
+                                    <button class="btn btn-link nav-link" type="submit">Log Out</button>
+                                </form>
+                            </li>
+                            <li>@await Component.InvokeAsync("CartSummary")</li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="Login">Log in</a>
+                            </li>
+
+                        }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    @*<div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            Put something useful here later
-        </div>
-        <div class="col-9">
-            @RenderBody()
-        </div>
-    </div>*@
     <div>
         @RenderBody();
     </div>
     <!-- footer -->
     <footer style="background-color: black;">
         <!-- Footer Links -->
-        <div class="container text-light text-center text-md-left mt-5 pt-5">
+        <div class="container text-light text-center text-md-left pt-5">
             <!-- Grid row -->
             <div class="row">
                 <!-- About -->
@@ -106,7 +135,7 @@
                     <h6 class="text-uppercase font-weight-bold">QUICK NAVIGATION</h6>
                     <hr class="bg-light accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 150px;">
                     <p>
-                        <img id="icon" src="~/images/icons/home.png" style="color:white;"/>
+                        <img id="icon" src="~/images/icons/home.png" style="color:white;" />
                         <a asp-controller="Home" asp-action="Index">HOME</a>
                     </p>
                     <p>
@@ -199,7 +228,7 @@
             <!-- Footer Links -->
             <!-- Copyright -->
             <div class="text-center text-muted">
-                © 2020 YONGZcreative | All rights reserved
+                &copy; 2019 - @DateTime.Now.Year.ToString() BAD ART (PTY) LTD . All rights reserved
             </div>
         </div>
         <!-- Copyright -->
