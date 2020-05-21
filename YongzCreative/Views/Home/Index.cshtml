@@ -2,19 +2,25 @@
     ViewData["Title"] = "Home";
 }
 
-<div id="HomeTopSection" class="row text-light">
-    <div class="col pl-5">
-        <p id="HomeDisplay">
-            <span id="BadArt">BAD ART</span> <span id="Store">Online Store</span>
-        </p>
-        <p id="motto">
-            Everything odd and out of line, a brand for the creative.
-            It's a unique comfort that comes with style and outlines your individuality.
-        </p>
-        <a id="CallToAction" asp-controller="Hoodies" asp-action="hoodies" class="btn btn-success mt-4 pt-3 pb-3">SHOP WITH US TODAY</a>
-    </div>
-    <div class="col">
-        <img src="~/images/badart.png" style="width:500px;" />
+<div id="HomeTopSection">
+    <div class="container">
+        <div class="row text-light">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <p id="HomeDisplay">
+                    <span id="BadArt">BAD ART</span> <span id="Store">Online Store</span>
+                </p>
+                <p id="motto">
+                    Everything odd and out of line, a brand for the creative.
+                    It's a unique comfort that comes with style and outlines your individuality.
+                </p>
+                <div class="d-flex justify-content-center">
+                    <a asp-controller="Hoodies" asp-action="hoodies" class="btn btn-success mt-4 pt-3 pb-3">SHOP WITH US TODAY</a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <img src="~/images/badart.png" style="width:100%;" />
+            </div>
+        </div>
     </div>
 </div>
 <div id="area">
