@@ -40,7 +40,7 @@
                     <ul class="navbar-nav flex-grow-1 font-weight-bold">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-link">Hello, @User.Identity.Name</li>
+                            <li class="nav-link text-info">Hello, @User.Identity.Name</li>
 
                             @if (User.IsInRole("Admin"))
                             {
@@ -69,7 +69,7 @@
                                 <a class="nav-link" asp-controller="Sweaters" asp-action="sweaters">SWEATERS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="TShirts" asp-action="tshirts">T-SHIRTS</a>
+                                <a class="nav-link" asp-controller="TShirts" asp-action="tshirts">TSHIRTS</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Leggings" asp-action="leggings">LEGGINGS</a>
@@ -77,12 +77,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Sweatpants" asp-action="sweatpants">SWEATPANTS</a>
                             </li>
-                            <li class="nav-item">
+                            @*<li class="nav-item">
                                 <a class="nav-link" asp-controller="About" asp-action="About">ABOUT</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Contact" asp-action="SendEmail">CONTACT US</a>
-                            </li>
+                            </li>*@
 
                             <li class="nav-item">
                                 <form asp-controller="Account" asp-action="Logout" method="post">
@@ -124,9 +124,9 @@
                         BAD ART (PTY) LTD is a retail company that incorporates art into its designs.
                         It gives you both calm and chaotic styles of comfort wear.
                     </p>
-                    <a asp-controller="About" asp-action="About">
+                    @*<a asp-controller="About" asp-action="About">
                         ABOUT US
-                    </a>
+                    </a>*@
                 </div>
                 <!-- //About -->
                 <!-- Navs -->
