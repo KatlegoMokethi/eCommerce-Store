@@ -26,21 +26,11 @@ namespace YongzCreative
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // Use SQL Database if in Azure, otherwise, use SQLite
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-            {
-                services.AddDbContext<AppDbContext>(options =>
-                        options.UseSqlServer(configuration.GetConnectionString("AppDbConnection")));
-                services.AddDbContext<AppIdentityDbContext>(options =>
-                        options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
-            }
-            else
-            {
-                services.AddDbContext<AppDbContext>(options =>
-                    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-                services.AddDbContext<AppIdentityDbContext>(options =>
-                    options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
-            }
+
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("AppDbConnection")));
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
 
             services.AddIdentity<IdentityUser, IdentityRole>(opts =>
             {
@@ -59,13 +49,21 @@ namespace YongzCreative
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMemoryCache();
             services.AddSession();
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
