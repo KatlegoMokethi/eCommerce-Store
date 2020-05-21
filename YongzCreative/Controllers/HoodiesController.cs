@@ -15,7 +15,8 @@ namespace YongzCreative.Controllers
 
         public IActionResult Hoodies()
         {
-            return View(_repository.Product.Hoodies);
+            var hoodies = _repository.Product.FindByCondition(p => p.CategoryID == 2);
+            return View(hoodies);
         }
     }
 }

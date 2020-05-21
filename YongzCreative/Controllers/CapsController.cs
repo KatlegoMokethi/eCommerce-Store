@@ -15,7 +15,7 @@ namespace YongzCreative.Controllers
 
         public IActionResult Caps()
         {
-            return View(_repository.Product.Caps);
+            return View(_repository.Product.FindByCondition(p => p.CategoryID == 1));
         }
     }
 }

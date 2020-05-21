@@ -19,7 +19,7 @@ namespace YongzCreative.Controllers
 
         public IActionResult Sweatpants()
         {
-            return View(_repository.Product.Sweatpants);
+            return View(_repository.Product.FindByCondition(p => p.CategoryID == 5));
         }
     }
 }

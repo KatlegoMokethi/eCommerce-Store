@@ -11,9 +11,9 @@ namespace YongzCreative.Controllers
     //[Authorize(Roles = "Customers")]
     public class CartController : Controller
     {
-        private IProductRepository _repository;
+        private IRepositoryWrapper _repository;
         private Cart cart;
-        public CartController(IProductRepository repository, Cart cartService)
+        public CartController(IRepositoryWrapper repository, Cart cartService)
         {
             _repository = repository;
             cart = cartService;
@@ -29,7 +29,7 @@ namespace YongzCreative.Controllers
         }
         public IActionResult AddToCart(int productId, string returnUrl)
         {
-            Product product = _repository.GetById(productId);
+            Product product = _repository.Product.GetById(productId);
             if (product != null)
             {
                 cart.AddItem(product, 1);
@@ -40,7 +40,7 @@ namespace YongzCreative.Controllers
         public IActionResult RemoveFromCart(int productId,
         string returnUrl)
         {
-            Product product = _repository.GetById(productId);
+            Product product = _repository.Product.GetById(productId);
             if (product != null)
             {
                 cart.RemoveLine(product);
