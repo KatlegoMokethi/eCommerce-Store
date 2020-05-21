@@ -26,12 +26,24 @@ namespace YongzCreative
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => 
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AppIdentityDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
+            // Use SQL Database if in Azure, otherwise, use SQLite
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            {
+                services.AddDbContext<AppDbContext>(options =>
+                        options.UseSqlServer(configuration.GetConnectionString("MyDbConnection")));
+                services.AddDbContext<AppDbContext>(options =>
+                        options.UseSqlServer(configuration.GetConnectionString("MyIdentityDbConnection")));
+            }
+            else
+            {
+                services.AddDbContext<AppDbContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                services.AddDbContext<AppIdentityDbContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
+            }
 
-            services.AddIdentity<IdentityUser, IdentityRole>(opts => {
+            services.AddIdentity<IdentityUser, IdentityRole>(opts =>
+            {
                 opts.User.RequireUniqueEmail = true;
                 opts.Password.RequiredLength = 6;
                 opts.Password.RequireNonAlphanumeric = false;
@@ -58,7 +70,8 @@ namespace YongzCreative
             app.UseStaticFiles();
             app.UseSession();
             app.UseAuthentication();
-            app.UseMvc(routes => {
+            app.UseMvc(routes =>
+            {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
