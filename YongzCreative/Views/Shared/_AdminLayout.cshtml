@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!--font(s)-->
+    <link href="https://fonts.googleapis.com/css2?family=Lateef&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link asp-href-include="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link asp-href-include="/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link asp-href-include="lib/bootstrap/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link asp-href-include="lib/bootstrap/css/easy-responsive-tabs.css" rel="stylesheet" type='text/css' />
+    <link asp-href-include="styles/style.css" rel="stylesheet" />
+    <script src="~/JavaScript.js"></script>
+    <title>@ViewData["Title"] - YongzCreative Online Store</title>
+
+</head>
+<body class="m-1 p-1">
+
+    <!-- Navigation -->
+    <div class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container">
+            <!-- Brand -->
+            <!--Navbar Brand-->
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <h3 class="text-light">
+                    <img src="~/images/logo/Logo_W.png" style="width:140px;" />
+                </h3>
+            </a>
+
+            <!-- Toggler/collapsible Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#MyNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="MyNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bg-info p-2"><h4>@ViewBag.Title</h4></div>
+
+        @*Display dismissible message alerts here*@
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                    <span aria-hidden="true">&times;</span> @*to help assistive technology*@
+                </button>
+                @TempData["Message"]
+            </div>
+        }
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <div class="container mt-5">
+        <div class="text-center small">
+            <p class="small">
+                Created by: <!-- Add your Initials. Surname (Student no.)-->
+                <br />
+                &copy; CSIS3734 (2019)
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <!-- JavaScript -->
+    <script asp-src-include="lib/jquery/jquery.slim.min.js"></script>
+    <script asp-src-include="lib/popper.js/popper.min.js"></script>
+    <script asp-src-include="lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
