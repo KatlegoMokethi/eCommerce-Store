@@ -30,9 +30,9 @@ namespace YongzCreative
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             {
                 services.AddDbContext<AppDbContext>(options =>
-                        options.UseSqlServer(configuration.GetConnectionString("MyDbConnection")));
+                        options.UseSqlServer(configuration.GetConnectionString("AppDbConnection")));
                 services.AddDbContext<AppDbContext>(options =>
-                        options.UseSqlServer(configuration.GetConnectionString("MyIdentityDbConnection")));
+                        options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
             }
             else
             {
