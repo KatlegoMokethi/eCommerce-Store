@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <ApplicationIcon />
+    <Win32Resource />
+    <Authors>Katlego Mokhethi</Authors>
+    <Company>Innovative Systems</Company>
+    <Product>eCommerce solution</Product>
+    <Description>Bad Art eCommerce solution</Description>
+    <PackageReleaseNotes>First version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

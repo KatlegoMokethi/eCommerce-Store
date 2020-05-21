@@ -19,8 +19,10 @@ namespace YongzCreative
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                        .UseStartup<Startup>()
+                    .CaptureStartupErrors(true) // the default
+                    .UseSetting("detailedErrors", "true")
+                    .UseStartup<Startup>()
                     .UseDefaultServiceProvider(options =>
-                        options.ValidateScopes = false);
+                            options.ValidateScopes = false);
     }
 }

@@ -31,7 +31,7 @@ namespace YongzCreative
             {
                 services.AddDbContext<AppDbContext>(options =>
                         options.UseSqlServer(configuration.GetConnectionString("AppDbConnection")));
-                services.AddDbContext<AppDbContext>(options =>
+                services.AddDbContext<AppIdentityDbContext>(options =>
                         options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
             }
             else
