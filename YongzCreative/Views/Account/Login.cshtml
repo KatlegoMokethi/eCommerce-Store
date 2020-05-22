@@ -1,18 +1,55 @@
 ﻿@model LoginModel
 
-<h2>Log In</h2>
-<div class="text-danger" asp-validation-summary="ModelOnly"></div>
-<form asp-action="Login" asp-controller="Account" method="post">
-    <input type="hidden" asp-for="ReturnUrl" />
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <div><span asp-validation-for="Email" class="text-danger"></span></div>
-        <input asp-for="Email" class="form-control" />
+<div class="Welcome">
+    <div class="container p-5">
+        <div class="card bg-dark">
+            <div class="row">
+                <!-- Side Image-->
+                <div class="col-sm-6 col-md-8" id="LoginBG">
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-sm-12 text-white text-center mt-5">
+                                <p class="mt-5">
+                                    WELCOME BACK, WE'VE BEEN WAITING FOR YOU.
+                                    <br />
+                                    EXPLORE OUR COLLECTION AND PICK ALL YOU  LIKE
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <img class="LoginImg" src="~/images/badart.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //Side Image-->
+                <!-- Login form-->
+                <div class="col-sm-6 col-md-4 text-white">
+                    <div class="card-body">
+                        <h2 class="card-title display-4">LOGIN</h2>
+
+                        <!-- Validation -->
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        <!-- Validation -->
+                        <!-- form -->
+                        <form asp-action="Login" asp-controller="Account" method="post">
+                            <input type="hidden" asp-for="ReturnUrl" />
+                            <div class="form-group">
+                                <label asp-for="Email"></label>
+                                <div><span asp-validation-for="Email" class="text-danger"></span></div>
+                                <input asp-for="Email" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password"></label>
+                                <div><span asp-validation-for="Password" class="text-danger"></span></div>
+                                <input asp-for="Password" class="form-control" />
+                            </div>
+                            <button class="btn btn-primary" type="submit">Log In</button>
+                        </form>
+                        <!-- form -->
+                    </div>
+                </div>
+                <!-- //Login form-->
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <div><span asp-validation-for="Password" class="text-danger"></span></div>
-        <input asp-for="Password" class="form-control" />
-    </div>
-    <button class="btn btn-primary" type="submit">Log In</button>
-</form>
+</div>
