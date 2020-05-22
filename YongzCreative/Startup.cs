@@ -26,12 +26,20 @@ namespace YongzCreative
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddDbContext<AppDbContext>(options =>
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            {
+                services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("AppDbConnection")));
-            services.AddDbContext<AppIdentityDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
-
+                services.AddDbContext<AppIdentityDbContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
+            }
+            else
+            {
+                services.AddDbContext<AppDbContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                services.AddDbContext<AppIdentityDbContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
+            }
             services.AddIdentity<IdentityUser, IdentityRole>(opts =>
             {
                 opts.User.RequireUniqueEmail = true;
@@ -63,7 +71,7 @@ namespace YongzCreative
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            
+
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
