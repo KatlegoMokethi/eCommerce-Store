@@ -80,6 +80,27 @@ h1 {
     font-family: Impact;
 }
 
+.Welcome {
+    background-image: url(/images/roses.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+/*Accout: Login*/
+#LoginBG {
+    background-image: url('../images/login.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.LoginImg {
+    width:80%;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid red;
+}
+/*Accout: Login*/
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
