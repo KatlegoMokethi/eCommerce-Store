@@ -4,13 +4,11 @@
     <div class="card-body">
         <img class="card-img" src="@Model.ImagePath" alt="@Model.Name">
         <div class="card-text">
-            <h5 class="text-right">@Model.Price.ToString("c")</h5>
+            <h5 class="text-right">R @Model.Price.ToString()</h5>
             <h3>@Model.Name</h3>
             <p>@Model.Description</p>
             @if (Model.status == Status.Available)
             {
-                @*<span class="btn-success p-1 float-left">Available</span>*@
-
                 <form id="@Model.ProductId" asp-action="AddToCart"
                       asp-controller="Cart" method="post">
                     <input type="hidden" asp-for="ProductId" />
