@@ -16,5 +16,10 @@ namespace YongzCreative.Controllers
         {
             return View();
         }
+
+        public IActionResult AllProducts()
+        {
+            return View(_repository.Product.FindAll());
+        }
     }
 }
