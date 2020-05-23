@@ -1,55 +1,55 @@
 ﻿@model CartIndexViewModel
-<div class="bg-white">
-    <div class="container">
-        <h2>Your cart</h2>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Quantity</th>
-                    <th>Item</th>
-                    <th>View</th>
-                    <th class="text-right">Price</th>
-                    <th class="text-right">Subtotal</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var line in Model.Cart.Lines)
-                {
-                    <tr>
-                        <td class="text-center">@line.Quantity</td>
-                        <td class="text-left">@line.Product.Name</td>
-                        <td class="text-left"><img src="@line.Product.ImagePath" style="width:50px;" /></td>
-                        <td class="text-right">R @line.Product.Price.ToString()</td>
-                        <td class="text-right">
-                            R @((line.Quantity * line.Product.Price).ToString())
-                        </td>
-                        <td>
-                            <form asp-action="RemoveFromCart" method="post">
-                                <input type="hidden" name="ProductId"
-                                       value="@line.Product.ProductId" />
-                                <input type="hidden" name="returnUrl"
-                                       value="@Model.ReturnUrl" />
-                                <button type="submit" class="btn btn-sm btn-danger">
-                                    Remove
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3" class="text-right">Total:</td>
-                    <td class="text-right">
-                        R @Model.Cart.ComputeTotalValue().ToString()
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
-        <div class="text-center">
+    <div id="area">
+        <div class="container">
+            <h3 class="display-4 text-white">Shopping Cart</h3>
+            <div class="row">
+                @*Items*@
+                <div class="col-sm-12 col-md-8 bg-white">
+                    <div class="row mt-3">
+                        @*Item*@
+                        @foreach (var line in Model.Cart.Lines)
+                        {
+                            <div class="col-lg-4">
+                                <div class="card-header">
+                                    <h3>@line.Product.Name</h3>
+                                </div>
+                                <div class="card-body">
+                                    <img class="card-img" src="@line.Product.ImagePath" style="width:100px;" />
+                                    <p><span class="card-title font-weight-bold">Price:</span> R @line.Product.Price.ToString()</p>
+                                    <p><span class="card-text font-weight-bold">Quantity:</span> @line.Quantity</p>
+                                    <p><span class="card-text font-weight-bold">Sub total:</span> R @((line.Quantity * line.Product.Price).ToString())</p>
+                                </div>
+                                @*Remove item*@
+                                <form asp-action="RemoveFromCart" method="post">
+                                    <input type="hidden" name="ProductId"
+                                           value="@line.Product.ProductId" />
+                                    <input type="hidden" name="returnUrl"
+                                           value="@Model.ReturnUrl" />
+                                    <button type="submit" class="btn btn-sm btn-danger ml-3 mb-3">
+                                        Remove
+                                    </button>
+                                </form>
+                            </div>
+                        }
+                    </div>
+                </div>
+                @*Cart Summary*@
+                <div class="col-sm-12 col-md-4 bg-dark text-white">
+                    <h2>Cart Summury</h2>
+                    <p>
+                        Item(s): @Model.Cart.Lines.Sum(l => l.Quantity)
+                        <br />
+                        Total: R @Model.Cart.ComputeTotalValue().ToString()
+                    </p>
+                    <p>
+                        <a class="btn btn-warning text-white" asp-action="Checkout"
+                           asp-controller="Order">PROCEED TO CHECKOUT</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>@*Conitune shopping*@
+        <div class="text-center p-5">
             <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
-            <a class="btn btn-primary" asp-action="Checkout"
-               asp-controller="Order">Checkout</a>
         </div>
     </div>
-</div>
