@@ -63,7 +63,7 @@
                                     OUR PRODUCTS
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">ALL PRODUCTS</a>
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="Products">ALL PRODUCTS</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" asp-controller="Hoodies" asp-action="hoodies">HOODIES</a>
                                     <a class="dropdown-item" asp-controller="Caps" asp-action="caps">CAPS</a>
@@ -74,10 +74,10 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="About" asp-action="About">ABOUT</a>
+                                <a class="nav-link" asp-controller="Home" asp-action="About">ABOUT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Contact" asp-action="SendEmail">CONTACT US</a>
+                                <a class="nav-link" asp-controller="Home" asp-action="ContactUs">CONTACT US</a>
                             </li>
 
                             <li class="nav-item">
