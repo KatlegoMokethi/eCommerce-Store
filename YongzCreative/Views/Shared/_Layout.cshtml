@@ -15,7 +15,7 @@
     <link asp-href-include="lib/bootstrap/css/easy-responsive-tabs.css" rel="stylesheet" type='text/css' />
     <link asp-href-include="styles/style.css" rel="stylesheet" />
     <script src="~/JavaScript.js"></script>
-    <title>@ViewData["Title"] - BadArt Online Store</title>
+    <title>BAD ART | @ViewData["Title"]</title>
 </head>
 <body>
     <header>
@@ -51,7 +51,6 @@
                                            asp-action="Index">User Management</a>
                                         <a class="dropdown-item" asp-controller="RoleAdmin"
                                            asp-action="Index">Role Management</a>
-
                                     </div>
                                 </li>
                             }
@@ -59,30 +58,27 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Hoodies" asp-action="hoodies">HOODIES</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    OUR PRODUCTS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">ALL PRODUCTS</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-controller="Hoodies" asp-action="hoodies">HOODIES</a>
+                                    <a class="dropdown-item" asp-controller="Caps" asp-action="caps">CAPS</a>
+                                    <a class="dropdown-item" asp-controller="Sweaters" asp-action="sweaters">SWEATERS</a>
+                                    <a class="dropdown-item" asp-controller="TShirts" asp-action="tshirts">TSHIRTS</a>
+                                    <a class="dropdown-item" asp-controller="Leggings" asp-action="leggings">LEGGINGS</a>
+                                    <a class="dropdown-item" asp-controller="Sweatpants" asp-action="sweatpants">SWEATPANTS</a>
+                                </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Caps" asp-action="caps">CAPS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Sweaters" asp-action="sweaters">SWEATERS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="TShirts" asp-action="tshirts">TSHIRTS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Leggings" asp-action="leggings">LEGGINGS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Sweatpants" asp-action="sweatpants">SWEATPANTS</a>
-                            </li>
-                            @*<li class="nav-item">
                                 <a class="nav-link" asp-controller="About" asp-action="About">ABOUT</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Contact" asp-action="SendEmail">CONTACT US</a>
-                            </li>*@
+                            </li>
 
                             <li class="nav-item">
                                 <form asp-controller="Account" asp-action="Logout" method="post">
@@ -125,8 +121,8 @@
                         It gives you both calm and chaotic styles of comfort wear.
                     </p>
                     @*<a asp-controller="About" asp-action="About">
-                        ABOUT US
-                    </a>*@
+                            ABOUT US
+                        </a>*@
                 </div>
                 <!-- //About -->
                 <!-- Navs -->
@@ -228,7 +224,7 @@
             <!-- Footer Links -->
             <!-- Copyright -->
             <div class="text-center text-muted">
-                &copy; 2019 - @DateTime.Now.Year.ToString() BAD ART (PTY) LTD . All rights reserved
+                &copy; Copyright @DateTime.Now.Year.ToString() BAD ART (PTY) LTD . All rights reserved
             </div>
         </div>
         <!-- Copyright -->
