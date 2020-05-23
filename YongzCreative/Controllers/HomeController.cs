@@ -17,9 +17,9 @@ namespace YongzCreative.Controllers
             return View();
         }
 
-        public IActionResult AllProducts()
+        public IActionResult Products()
         {
-            return View(_repository.Product.FindAll());
+            return View(_repository.Product.FindByCondition(p => p.ImagePath != null));
         }
     }
 }
