@@ -1,6 +1,8 @@
 ﻿@model CartIndexViewModel
-    <div id="area">
-        <div class="container">
+<div id="area">
+    <div class="container">
+        @if (@Model.Cart.Lines.Sum(l => l.Quantity) != 0)
+        {
             <h3 class="display-4 text-white">Shopping Cart</h3>
             <div class="row">
                 @*Items*@
@@ -47,9 +49,13 @@
                     </p>
                 </div>
             </div>
-
-        </div>@*Conitune shopping*@
-        <div class="text-center p-5">
-            <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
-        </div>
+        }
+        else
+        {
+            <p class="text-center pt-5" style="font-size: 20px;">There is nothing to show here, your cart is empty!</p>
+        }
+    </div>@*Conitune shopping*@
+    <div class="text-center p-5">
+        <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
     </div>
+</div>
