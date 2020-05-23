@@ -27,16 +27,16 @@ namespace YongzCreative
         public void ConfigureServices(IServiceCollection services)
         {
             //For Production Environment
-            //services.AddDbContext<AppDbContext>(options =>
-            //options.UseSqlServer(configuration.GetConnectionString("AppDbConnection")));
-            //services.AddDbContext<AppIdentityDbContext>(options =>
-            //    options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
+            services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("AppDbConnection")));
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
 
             //For Development Environment
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AppIdentityDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
+            //services.AddDbContext<AppDbContext>(options =>
+            //    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<AppIdentityDbContext>(options =>
+            //    options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
 
 
             services.AddIdentity<IdentityUser, IdentityRole>(opts =>
