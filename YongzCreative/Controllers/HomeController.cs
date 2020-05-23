@@ -21,5 +21,15 @@ namespace YongzCreative.Controllers
         {
             return View(_repository.Product.FindByCondition(p => p.ImagePath != null));
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult ContactUs()
+        {
+            return View();
+        }
     }
 }
