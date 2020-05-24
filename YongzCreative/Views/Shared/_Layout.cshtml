@@ -28,7 +28,6 @@
                         <img src="~/images/logo/Logo_W.png" style="width:140px;" />
                     </h3>
                 </a>
-                @*<div>@await Component.InvokeAsync("CartSummary")</div>*@
                 <!--Hamburger menu-->
                 <button class="navbar-toggler btn-outline-warning" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -89,6 +88,24 @@
                         }
                         else
                         {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    OUR PRODUCTS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="Products">ALL PRODUCTS</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-controller="Hoodies" asp-action="hoodies">HOODIES</a>
+                                    <a class="dropdown-item" asp-controller="Caps" asp-action="caps">CAPS</a>
+                                    <a class="dropdown-item" asp-controller="Sweaters" asp-action="sweaters">SWEATERS</a>
+                                    <a class="dropdown-item" asp-controller="TShirts" asp-action="tshirts">TSHIRTS</a>
+                                    <a class="dropdown-item" asp-controller="Leggings" asp-action="leggings">LEGGINGS</a>
+                                    <a class="dropdown-item" asp-controller="Sweatpants" asp-action="sweatpants">SWEATPANTS</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="About">ABOUT</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
                             </li>
