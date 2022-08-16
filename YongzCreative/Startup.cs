@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -26,18 +22,21 @@ namespace YongzCreative
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //For Production Environment
-            services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("AppDbConnection")));
-            services.AddDbContext<AppIdentityDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("AppIdentityDbConnection")));
-
-            //For Development Environment
-            //services.AddDbContext<AppDbContext>(options =>
-            //    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDbContext<AppIdentityDbContext>(options =>
-            //    options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
-
+            var env = configuration.GetSection("Environment");
+            if (env.Value == "DEV")
+            {
+                services.AddDbContext<AppDbContext>(options => 
+                    options.UseSqlServer(configuration.GetConnectionString("DataConnection")));
+                services.AddDbContext<AppIdentityDbContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("IdentityConnection")));
+            }
+            else
+            {
+                services.AddDbContext<AppDbContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("StoreDbConnection")));
+                services.AddDbContext<AppIdentityDbContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("StoreIdDbConnection")));
+            }
 
             services.AddIdentity<IdentityUser, IdentityRole>(opts =>
             {
